@@ -22,12 +22,8 @@ namespace isv.Controllers
         {
             try
             {
-                //var DeleteCities = context.Cities;
-                //context.Cities.RemoveRange(DeleteCities);
-                //var DeleteUsers = context.Users;
-                //context.Users.RemoveRange(DeleteUsers);
-                await Task.Run(() => context.Cities.AddRangeAsync(request.Cities));
-                await Task.Run(() => context.Users.AddRangeAsync(request.Users));
+                await context.Cities.AddRangeAsync(request.Cities);
+                await context.Users.AddRangeAsync(request.Users);
                 await context.SaveChangesAsync();
                 return Ok();
             }
