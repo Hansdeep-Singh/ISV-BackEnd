@@ -56,7 +56,7 @@ namespace isv.Controllers
         }
 
         [HttpPost("DeleteAll")]
-        public async Task<IActionResult> DeleteAll()
+        public IActionResult DeleteAll()
         {
             try
             {
@@ -73,7 +73,7 @@ namespace isv.Controllers
         }
 
         [HttpPost("DeleteUser")]
-        public async Task<IActionResult> DeleteUser(User user)
+        public IActionResult DeleteUser(User user)
         {
             try { 
             var DeleteRange = context.Users.Where(u => u.UserId != user.UserId);
@@ -91,7 +91,7 @@ namespace isv.Controllers
            
 
         [HttpGet("GetUsers")]
-        public async Task<IActionResult> GetUsers()
+        public IActionResult GetUsers()
         {
             try { 
             var result = from usr in context.Users join cyt in context.Cities  on usr.CityId equals cyt.CityId
